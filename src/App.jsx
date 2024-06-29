@@ -1,12 +1,12 @@
-import React from "react";
+import React , {lazy , Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
-import About_Class from "./components/About_Class";
 import Restauraunt_menu from "./components/Restaurant_menu";
 import { createBrowserRouter , RouterProvider, Outlet  } from "react-router-dom";
-import ToggleSlider from "./components/ToggleSlider";
+
+// Lazy loading About Component
+const About = lazy( ()=>import("./components/About"));
 
 // App Layout
 const AppLayout = () =>
@@ -30,7 +30,7 @@ const appRouter = createBrowserRouter([ // configuration of our router
             },
             {
                 path: '/about',
-                element: <About_Class location ={'Doonite'}/>
+                element: <Suspense fallback = {<h1>Aara hai..</h1>}> <About/> </Suspense>
             },
             {
                 path: '/restaurants/:resId' , // : signifies this part of path is dynamic(can change)

@@ -3,7 +3,7 @@ const About = () => {
         <div className="about-container">
             <div className="left">
             <div>
-            <h2> Dear Doonite,</h2>
+            <h2> Hey Doonite,</h2>
             <h2> confused about What to order?</h2>
             </div>
             <h4>Dont worry, we got you 😉</h4>
