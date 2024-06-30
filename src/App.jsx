@@ -6,7 +6,10 @@ import Restauraunt_menu from "./components/Restaurant_menu";
 import { createBrowserRouter , RouterProvider, Outlet  } from "react-router-dom";
 
 // Lazy loading About Component
-const About = lazy( ()=>import("./components/About"));
+const About = lazy( ()=>{
+    let obj = import("./components/About"); // import returns a promise , which is returned by lazy function
+    return obj;
+});
 
 // App Layout
 const AppLayout = () =>
