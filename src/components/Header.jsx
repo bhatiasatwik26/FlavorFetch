@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState , useContext, useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
+import UserContext from "../utils/UserContext";
+
 
 // Header
 const Header = () =>{
-    let [userStatus , setUserStatus] = useState("Login");
-    let [showingNav , setShowingNav] = useState(false);
+
+    const [userStatus , setUserStatus] = useState("Login");
+    const [showingNav , setShowingNav] = useState(false);
+    const data = useContext(UserContext);
+    console.log(data);
+
+
     return (
         <div className="w-full bg-white border-b">
             <div className=" flex  w-full  h-20 items-center justify-between  overflow-hidden max-w-[1300px] mx-auto px-3 ">
@@ -22,8 +29,8 @@ const Header = () =>{
                         <li className="hover:text-blue-400 transition-all duration-150">
                             <Link to= "/about" >About</Link>
                         </li>
-                        <li className="hover:text-blue-400 transition-all duration-150">
-                            <a href="">Cart</a>
+                        <li className="hover:text-blue-400 transition-all duration-150 font-medium">
+                            {data.loggedInUser}
                         </li>
                     </ul>
                 </div>
@@ -43,8 +50,8 @@ const Header = () =>{
                         <li className=" w-full border-b border-b-[#dcdfe464] px-6 py-2">
                             <Link to= "/about" >About</Link>
                         </li>
-                        <li className=" w-full border-b border-b-[#dcdfe464] px-6 py-2">
-                            <a href="">Cart</a>
+                        <li className=" w-full border-b border-b-[#dcdfe464] px-6 py-2 font-medium">
+                            {data.loggedInUser}
                         </li>
                         <button className="px-4 py-2 text-xl rounded-full bg-green-600 mr-4 mt-4 
                         hover:bg-green-700"
