@@ -5,6 +5,9 @@ import Body from "./components/Body";
 import Restauraunt_menu from "./components/Restaurant_menu";
 import { createBrowserRouter , RouterProvider, Outlet  } from "react-router-dom";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import AppStore from "./utils/appStore";
+import Cart from "./components/Cart"
 
 // Lazy loading About Component
 const About = lazy( ()=>{
@@ -25,15 +28,17 @@ const AppLayout = () =>{
     }, [])
 
     return (
-        <UserContext.Provider value={{ loggedInUser : user }}>
-            <div className="app">
-                <Header/>
-                {/* if path == / ---> body chahiye */}
-                {/* if path == /about ---> about chahiye */}
-                {/* if path == /resto ---> restro chahiye */}
-                <Outlet/>
-            </div>
-        </UserContext.Provider>
+        <Provider store={AppStore}>
+            <UserContext.Provider value={{ loggedInUser : user }}>
+                <div className="app">
+                    <Header/>
+                    {/* if path == / ---> body chahiye */}
+                    {/* if path == /about ---> about chahiye */}
+                    {/* if path == /resto ---> restro chahiye */}
+                    <Outlet/>
+                </div>
+            </UserContext.Provider>
+        </Provider>
     )
 }
 const appRouter = createBrowserRouter([ // configuration of our router
@@ -52,6 +57,10 @@ const appRouter = createBrowserRouter([ // configuration of our router
             {
                 path: '/restaurants/:resId' , // : signifies this part of path is dynamic(can change)
                 element: <Restauraunt_menu/>
+            },
+            {
+                path: '/cart',
+                element: <Cart></Cart>
             }
         ]
     },

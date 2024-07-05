@@ -699,6 +699,20 @@ const About = ()=>{
                 fileName: "Food_App/src/components/About.jsx",
                 lineNumber: 14,
                 columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                children: "i"
+            }, void 0, false, {
+                fileName: "Food_App/src/components/About.jsx",
+                lineNumber: 17,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                children: "i"
+            }, void 0, false, {
+                fileName: "Food_App/src/components/About.jsx",
+                lineNumber: 18,
+                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {

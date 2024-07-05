@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 // Header
@@ -12,14 +13,15 @@ const Header = () =>{
     const [userStatus , setUserStatus] = useState("Login");
     const [showingNav , setShowingNav] = useState(false);
     const data = useContext(UserContext);
-    console.log(data);
 
+    // Subscribing to the store using selector
+    const cartItems = useSelector((store) => store.cart.items);
 
     return (
         <div className="w-full bg-white border-b">
-            <div className=" flex  w-full  h-20 items-center justify-between  overflow-hidden max-w-[1300px] mx-auto px-3 ">
+            <div className=" flex  w-full  h-20 items-center justify-between  overflow-hidden max-w-[1200px] mx-auto px-3 ">
                 <div className="w-[120px]  md:w-[120px] ">
-                    <img className="w-full h-full scale-150 md:scale-[1.85]" src={LOGO_URL}/>
+                <Link to= "/" ><img className="w-full h-full scale-150 md:scale-[1.85]" src={LOGO_URL}/></Link>
                 </div>  
                 <div>
                     <ul className="hidden md:flex gap-6 text-xl items-center ">
@@ -29,8 +31,8 @@ const Header = () =>{
                         <li className="hover:text-blue-400 transition-all duration-150">
                             <Link to= "/about" >About</Link>
                         </li>
-                        <li className="hover:text-blue-400 transition-all duration-150 font-medium">
-                            {data.loggedInUser}
+                        <li className="hover:text-blue-400 transition-all duration-150 cursor-pointer">
+                          <Link to= "/cart" > Cart ({cartItems.length})</Link>
                         </li>
                     </ul>
                 </div>
@@ -51,7 +53,7 @@ const Header = () =>{
                             <Link to= "/about" >About</Link>
                         </li>
                         <li className=" w-full border-b border-b-[#dcdfe464] px-6 py-2 font-medium">
-                            {data.loggedInUser}
+                            <Link to= "/cart" > Cart ({cartItems.length})</Link>
                         </li>
                         <button className="px-4 py-2 text-xl rounded-full bg-green-600 mr-4 mt-4 
                         hover:bg-green-700"

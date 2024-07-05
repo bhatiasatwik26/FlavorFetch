@@ -21,7 +21,7 @@ const Restauraunt_menu = () => {
 
     return (
         <div className="px-2 w-full">
-            <div className=" flex flex-col items-center pt-4 w-full max-w-[1300px] mx-auto">
+            <div className=" flex flex-col items-center pt-4 w-full max-w-[1200px] mx-auto">
                 <h1 className="text-2xl font-semibold mb-2 md:text-3xl xl:text-4xl xl:mb-4">{name}</h1>
                 <div className="bg-[#5e5e5e13] flex items-center justify-center gap-2 text-sm px-3 py-1 rounded-3xl font-medium mb-10 xl:text-base xl:mb-14">
                     <p>⏱️ {sla.slaString.toLowerCase()}</p>
@@ -29,8 +29,11 @@ const Restauraunt_menu = () => {
                     <p>🪙 {costForTwoMessage}</p>
                 </div>
                 <div className="w-full flex flex-col  justify-center gap-2">
-                    {dishes.map((dish , ind) => <Menu_Accordian info={dish.card.card} 
-                    showFunction={()=>{setShowIndex(ind)}} hideFuction={()=>{setShowIndex(-1)}} key={dish.card.card.title} showMenu={ind == showIndex ?  true : false} />)}
+                    {   dishes.map((dish , ind) => 
+                        {   console.log(dish);
+                            return <Menu_Accordian info={dish.card.card} showFunction={()=>{setShowIndex(ind)}} hideFuction={()=>{setShowIndex(-1)}} key={dish.card.card.title} showMenu={ind == showIndex ?  true : false} />
+                        }
+                    )}
                 </div>
             </div>
         </div>
