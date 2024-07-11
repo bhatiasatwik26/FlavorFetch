@@ -1,23 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 // Changed to PascalCase as per your preference
 const CartSlice = createSlice({
     name: "cart",
     initialState: {
-        items: []
+        items: {}
     },
     reducers: {
         addItem: (state, action) => {
-            console.log(action);
-            state.items.push(action.payload);
+            if(state.items[action?.payload?.card?.info?.id])
+                state.items[action?.payload?.card?.info?.id].qty++;
+            else
+                state.items[action?.payload?.card?.info?.id] = {item:action.payload , qty : 1}
+            console.log(current(state.items))
         },
-        removeItem: state => {
-            state.items.pop();
+        removeItem: (state , action) => {
+            if(state.items[action?.payload?.card?.info?.id].qty > 1)
+                state.items[action?.payload?.card?.info?.id].qty--;
+            else
+                delete state.items[action?.payload?.card?.info?.id];
         },
         clearCart: state => { // Ensure this reducer takes `state` as an argument
-            state.items.length = 0;
-
-            // or  state.items = [];
+            state.items = {};
         },
     },
 });

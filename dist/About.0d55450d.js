@@ -614,113 +614,82 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _pathContext = require("../utils/PathContext");
+var _pathContextDefault = parcelHelpers.interopDefault(_pathContext);
+var _s = $RefreshSig$();
 const About = ()=>{
+    _s();
+    const PathObj = (0, _react.useContext)((0, _pathContextDefault.default));
+    PathObj.setPath("/about");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex flex-col items-center justify-center h-calc-100vh-minus-80px",
+        className: "flex flex-col items-center justify-center h-calc-100vh-minus-80px gap-2 -mt-20",
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                className: "text-5xl",
+                children: " Hey Foodie !"
+            }, void 0, false, {
+                fileName: "Food_App/src/components/About.jsx",
+                lineNumber: 12,
+                columnNumber: 17
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                className: "text-3xl font-light",
+                children: "Confused about What to order?"
+            }, void 0, false, {
+                fileName: "Food_App/src/components/About.jsx",
+                lineNumber: 13,
+                columnNumber: 17
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                className: "text-3xl -mt-2 font-light",
+                children: "Dont worry, we got you\uD83D\uDE09"
+            }, void 0, false, {
+                fileName: "Food_App/src/components/About.jsx",
+                lineNumber: 14,
+                columnNumber: 17
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-full h-[40%] ",
+                className: "mt-1",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        className: "text-3xl leading-8 md:text-5xl md:leading-normal",
-                        children: " Hey Doonite !"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "text-xl font-light",
+                        children: "\u27A1\uFE0FList of 25+ handpicked , top rated restaurants for you to choose from"
                     }, void 0, false, {
                         fileName: "Food_App/src/components/About.jsx",
-                        lineNumber: 5,
-                        columnNumber: 17
+                        lineNumber: 16,
+                        columnNumber: 21
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        className: "text-2xl leading-7 md:text-3xl md:leading-normal",
-                        children: "Confused about What to order?"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "text-xl font-light",
+                        children: "\u27A1\uFE0FAdditional filters to further filter out top rated takeaway centres"
                     }, void 0, false, {
                         fileName: "Food_App/src/components/About.jsx",
-                        lineNumber: 6,
-                        columnNumber: 17
+                        lineNumber: 17,
+                        columnNumber: 21
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                        className: "text-2xl leading-7 md:text-3xl md:leading-normal",
-                        children: "Dont worry, we got you\uD83D\uDE09"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "text-xl font-light",
+                        children: "\u27A1\uFE0FSearch your favourite restaurant by name if it gets a place in our list\uD83D\uDC40"
                     }, void 0, false, {
                         fileName: "Food_App/src/components/About.jsx",
-                        lineNumber: 7,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "mt-1",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                className: "leading-5 mt-1",
-                                children: "\u27A1\uFE0FList of 25+ handpicked , top rated restaurants for you to choose from"
-                            }, void 0, false, {
-                                fileName: "Food_App/src/components/About.jsx",
-                                lineNumber: 9,
-                                columnNumber: 21
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                className: "leading-5 mt-1",
-                                children: "\u27A1\uFE0FAdditional filters to further filter out top rated takeaway centres"
-                            }, void 0, false, {
-                                fileName: "Food_App/src/components/About.jsx",
-                                lineNumber: 10,
-                                columnNumber: 21
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                className: "leading-5 mt-1",
-                                children: "\u27A1\uFE0FSearch your favourite restaurant by name if it gets a place in our list\uD83D\uDC40"
-                            }, void 0, false, {
-                                fileName: "Food_App/src/components/About.jsx",
-                                lineNumber: 11,
-                                columnNumber: 21
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "Food_App/src/components/About.jsx",
-                        lineNumber: 8,
-                        columnNumber: 17
+                        lineNumber: 18,
+                        columnNumber: 21
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "Food_App/src/components/About.jsx",
-                lineNumber: 4,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "bg-blue-500 w-full h-[60%] object-cover",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    className: "w-full h-full",
-                    src: "https://images.unsplash.com/photo-1550918873-fa384ac606e6?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    alt: ""
-                }, void 0, false, {
-                    fileName: "Food_App/src/components/About.jsx",
-                    lineNumber: 15,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
-                fileName: "Food_App/src/components/About.jsx",
-                lineNumber: 14,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                children: "i"
-            }, void 0, false, {
-                fileName: "Food_App/src/components/About.jsx",
-                lineNumber: 17,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                children: "i"
-            }, void 0, false, {
-                fileName: "Food_App/src/components/About.jsx",
-                lineNumber: 18,
-                columnNumber: 13
+                lineNumber: 15,
+                columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "Food_App/src/components/About.jsx",
-        lineNumber: 3,
+        lineNumber: 11,
         columnNumber: 9
     }, undefined);
 };
+_s(About, "bFhvIp+RueZhTiw66LvUNXbtA48=");
 _c = About;
 exports.default = About;
 var _c;
@@ -731,6 +700,6 @@ $RefreshReg$(_c, "About");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["atwe2","1xC6H"], null, "parcelRequire77dd")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/PathContext":"dNzTk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["atwe2","1xC6H"], null, "parcelRequire77dd")
 
 //# sourceMappingURL=About.0d55450d.js.map

@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { IoIosArrowUp } from "react-icons/io";
 import { MenuList } from './MenuList';
+import Nested_Accordian from './Nested_Accordian';
 
 const Menu_Accordian = ({ info, showMenu, showFunction , hideFuction }) => {
 
-    const [isVisible , setIsVisible] = useState(false);
-
     const handleClick = () => {
-        setIsVisible(!isVisible)
-       isVisible ? hideFuction() : showFunction();
+        showMenu ? hideFuction()  : showFunction();
     }
 
-    // console.log(info.title)
 
     return (
-        <div className='bg-[#36363613] rounded-sm  shadow-sm mb-4'>
-            <div className='bg-[#cdcdcd0f] flex items-center justify-between p-4 shadow-sm hover:bg-[#64646425] cursor-pointer' onClick={handleClick}>
+        <div className='bg-[#e7eaee] rounded-lg  shadow-sm mb-4 overflow-hidden'>
+            <div className='bg-[#dedee0] flex items-center justify-between p-4 shadow-sm hover:bg-[#cfd0d3] cursor-pointer' onClick={handleClick}>
                 <h1 className='text-lg xl:text-2xl'>{info.title}</h1>
                 <p>
                     <IoIosArrowUp className={`duration-200 ease-in-out ${showMenu ? 'rotate-180' : ''}`} />
@@ -26,6 +23,13 @@ const Menu_Accordian = ({ info, showMenu, showFunction , hideFuction }) => {
                     {showMenu ? <MenuList list={info.itemCards} /> : null}
                 </div> :
                 <div>
+                    {showMenu ?
+                        info.categories.map((dish , ind) => 
+                        {  
+                            return <Nested_Accordian info={dish}  key={ind}/>
+                        }) :
+                        null 
+                    }
                 </div>
              }
         </div>

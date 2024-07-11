@@ -1,26 +1,38 @@
 import {Res_card , highRated} from "./Res_Card";
-import { useState , useEffect } from "react";
+import { useState , useEffect, useContext } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import PathContext from "../utils/PathContext";
 let API_DATA = [];
  
 const Body = () =>{
 
+  const PathObj = useContext(PathContext);
+  PathObj.setPath('/')
+
   const [LIST_OF_RESTRO , SET_LIST_OF_RESTRO] = useState([]);
   const [SEARCH_TEXT , SET_SEARCH_TEXT] = useState("");
+
+  const lat  = useSelector(store => store.location.lat);
+  const long  = useSelector(store => store.location.long);
 
   const RatedRestro = highRated(Res_card);
 
   useEffect(()=>{
-    fetchData();
-  } , []);
+        fetchData()
+  },[lat , long])
 
   async function fetchData()
   {
-    const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3252639&lng=78.0412983&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
-    const dataJson = await data.json();
-    API_DATA = dataJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    SET_LIST_OF_RESTRO(API_DATA);
+    if(lat != 0 && long != 0)
+    {
+      console.log("calling.....")
+      const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+      const dataJson = await data.json();
+      API_DATA = dataJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      SET_LIST_OF_RESTRO(API_DATA);
+    }
   }
 
   const searchList = ()=>
@@ -30,13 +42,11 @@ const Body = () =>{
         SET_SEARCH_TEXT("");
       }
 
-  if(!API_DATA.length)
+  if(!API_DATA?.length)
     {
       return <Shimmer/>
     }
   else
-
-
     return (
       <div className=" bg-slate-100   pt-10 mx-auto max-w-[1300px]">
           <div className="flex flex-col-reverse gap-6 md:flex-row items-center md:justify-between w-full  px-4 lg:px-20 xl:px-40" >
@@ -79,6 +89,8 @@ const Body = () =>{
             
           <div className="flex flex-wrap items-center justify-center gap-4  md:gap-10 max-w-[1300px] mx-auto pt-10">
             {
+              LIST_OF_RESTRO.length == 0 ?
+                <h1 className="text-2xl font-light text-center mt-[10%] text-[#88666691]">🧭Looks like we're lost</h1> :
               LIST_OF_RESTRO
               .map((res_obj , index) => {
                 return <Link to={`/restaurants/${res_obj.info.id}`} key={index}>

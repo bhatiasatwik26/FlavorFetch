@@ -4,32 +4,44 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import Restauraunt_menu from "./components/Restaurant_menu";
 import { createBrowserRouter , RouterProvider, Outlet  } from "react-router-dom";
-import UserContext from "./utils/UserContext";
-import { Provider } from "react-redux";
-import AppStore from "./utils/appStore";
+import PathContext from "./utils/PathContext";
+import { Provider, useDispatch } from "react-redux";
+import AppStore from "./utils/AppStore";
 import Cart from "./components/Cart"
-
+import { setLat, setLong } from "./utils/LocationSlice";
 // Lazy loading About Component
 const About = lazy( ()=>{
     let obj = import("./components/About"); // import returns a promise , which is returned by lazy function
     return obj;
 });
 
-// App Layout
+
 const AppLayout = () =>{
 
-    const [user , setUser] = useState('Placeholder');
+    const dispatch = useDispatch();
 
-    useEffect(()=>{
-        const data = {
-            name : "Akshay",
-        }
-        setUser(data.name)
-    }, [])
+    const [path , setPath] = useState('/')
+
+    const getLocation = () => {
+        navigator.geolocation.getCurrentPosition( (position) => {
+              dispatch(setLat(position.coords.latitude));
+              dispatch(setLong(position.coords.longitude));
+              console.log(position.coords.latitude);
+              console.log(position.coords.longitude);
+          },
+        );
+    };
+
+    // const [user , setUser] = useState('Placeholder');
+    
+     useEffect(()=>{
+        getLocation();
+    } , []);
+
 
     return (
-        <Provider store={AppStore}>
-            <UserContext.Provider value={{ loggedInUser : user }}>
+        <>
+            <PathContext.Provider value={{pathValue : path , "setPath" : setPath}}>
                 <div className="app">
                     <Header/>
                     {/* if path == / ---> body chahiye */}
@@ -37,8 +49,8 @@ const AppLayout = () =>{
                     {/* if path == /resto ---> restro chahiye */}
                     <Outlet/>
                 </div>
-            </UserContext.Provider>
-        </Provider>
+            </PathContext.Provider>
+        </>
     )
 }
 const appRouter = createBrowserRouter([ // configuration of our router
@@ -66,4 +78,8 @@ const appRouter = createBrowserRouter([ // configuration of our router
     },
 ]);
 const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(
+    <Provider store={AppStore}>
+        <RouterProvider router={appRouter}/>
+    </Provider>
+);
