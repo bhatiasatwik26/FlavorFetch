@@ -22,7 +22,7 @@ FlavorFetch is a modern food discovery and delivery platform built as a single-p
 ## Demo
 
 click on the link to follow:  
-https://www.linkedin.com/posts/satwik-bhatia-74855b246_react-webdevelopment-javascript-activity-7217177897327894528-p2wY?utm_source=share&utm_medium=member_desktop
+[https://www.linkedin.com/posts/satwik-bhatia-74855b246_react-webdevelopment-javascript-activity-7217177897327894528-p2wY?utm_source=share&utm_medium=member_desktop](https://www.linkedin.com/posts/satwik-bhatia-74855b246_react-webdevelopment-javascript-activity-7217183049912864768-ocAK?utm_source=share&utm_medium=member_desktop)
 
 ## Technologies Used
 
